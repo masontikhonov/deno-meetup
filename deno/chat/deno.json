@@ -1,0 +1,19 @@
+{
+  "fmt": {
+    "options": {
+      "indentWidth": 2,
+      "singleQuote": true
+    }
+  },
+  "tasks": {
+    "pre-bundle": "rm -rf ./dist && mkdir ./dist",
+    "bundle": "deno task pre-bundle && deno bundle ./src/index.ts > ./dist/server.js",
+    "pre-compile": "rm -rf ./bin && mkdir ./bin && deno task bundle",
+    "start:dev": "deno run --allow-net --allow-read=$PWD --allow-env --watch ./src/index.ts",
+    "start:prod": "deno task bundle && deno run --allow-net ./dist/server.js",
+    "compile:linux": "deno compile --allow-net --allow-read=$PWD --allow-env --output=./bin/server.bin --target=x86_64-unknown-linux-gnu ./dist/server.js",
+    "compile:windows": "deno compile --allow-net --allow-read=$PWD --allow-env --output=./bin/server.exe --target=x86_64-pc-windows-msvc ./dist/server.js",
+    "compile": "deno task pre-compile && deno task compile:linux && deno task compile:windows",
+    "test": "deno test --allow-all --coverage=cov/"
+  }
+}
