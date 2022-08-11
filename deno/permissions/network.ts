@@ -6,8 +6,7 @@ import { keepAlive } from '../keep-alive.ts';
 
 const catResponse = await fetch('https://catfact.ninja/fact');
 const jsonBody = await catResponse.json();
-console.log(`😻 ${jsonBody.fact}`)
-
+console.log(`😻 ${jsonBody.fact}`);
 
 //*       Default propmpt:
 // try {
