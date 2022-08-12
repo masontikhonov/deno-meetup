@@ -3,3 +3,4 @@
 /cov
 .env
 *.log
+*.lcov
