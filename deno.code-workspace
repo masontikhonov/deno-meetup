@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "deno"
+		},
+		{
+			"path": "node"
+		}
+	],
+	"settings": {
+		"deno.unstable": true
+	}
+}
